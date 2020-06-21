@@ -4264,7 +4264,9 @@ input[type=button].btn-block {
 .navbar-expand .navbar-toggler {
   display: none;
 }
-
+.cutomcolor{
+  color: #fed136 !important;
+}
 .navbar-light .navbar-brand {
   color: rgba(0, 0, 0, 0.9);
 }
@@ -10140,7 +10142,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../img/header-bg.jpg");
+  background-image: url("../img/bground1.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

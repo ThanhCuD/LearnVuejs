@@ -19,24 +19,7 @@
         <!-- Team-->
         <Team></Team>
         <!-- Clients-->
-        <div class="py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/themeforest.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/creative-market.jpg" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Clients></Clients>
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container">
@@ -281,13 +264,14 @@ import Services from './components/Services'
 import Navigation from './components/Navigation'
 import About from './components/About'
 import Team from './components/Team'
+import Clients from './components/Clients'
 export default {
   name: 'App',
   components:{
     Portfolio,
     Services,
     Navigation,
-    About,Team
+    About,Team,Clients
   }
 }
 </script>

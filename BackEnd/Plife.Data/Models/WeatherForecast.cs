@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 
-namespace Plife.Api
+namespace Plife.Data.Models
 {
     public class WeatherForecast
     {
+        public int id { get; set; }
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }

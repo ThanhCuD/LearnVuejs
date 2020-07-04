@@ -4,5 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Plife.Data\Plife.Data.csproj" />
+    <ProjectReference Include="..\Plife.Global\Plife.Global.csproj" />
+  </ItemGroup>
+
 
 </Project>

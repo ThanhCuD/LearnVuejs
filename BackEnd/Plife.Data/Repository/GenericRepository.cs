@@ -11,9 +11,8 @@ namespace Plife.Data.Repository
         private DbSet<T> table = null;
         public GenericRepository()
         {
-            this.context = new PetLifeContext();
+            this.context = new  PetLifeContext();
             this.table = context.Set<T>();
-            
         }
         public IEnumerable<T> GetAll()
         {

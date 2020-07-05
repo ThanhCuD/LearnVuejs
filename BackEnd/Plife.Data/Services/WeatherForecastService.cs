@@ -16,11 +16,7 @@ namespace Plife.Data.Services
         private IGenericRepository<WeatherForecast> repository = null;
         public WeatherForecastService()
         {
-            repository = new GenericRepository<WeatherForecast>();
-        }
-        public WeatherForecastService(IGenericRepository<WeatherForecast> repository)
-        {
-            this.repository = repository;
+            this.repository = new GenericRepository<WeatherForecast>();
         }
 
         public List<WeatherForecast> GetAll()

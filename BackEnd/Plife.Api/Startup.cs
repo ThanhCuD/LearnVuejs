@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Plife.Data.Models;
 using Plife.Data.Services;
+using Plife.Global.Helpers;
 
 namespace Plife.Api
 {
@@ -28,8 +29,7 @@ namespace Plife.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<PetLifeContext>(option =>
-            //    option.UseSqlServer(Configuration.GetConnectionString("PLifeDbContext")));
+            AppSettings.ConnectionString = Configuration.GetConnectionString("PLifeDb");
             services.AddControllers();
             services.AddScoped<IWeatherForecastService, WeatherForecastService>();
         }

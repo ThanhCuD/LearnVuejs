@@ -1,34 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Plife.Global.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Plife.Data.Models
 {
-    public class PetLifeContext : DbContext
+    public partial class PetLifeContext : DbContext
     {
         public PetLifeContext()
         {
 
         }
-        public PetLifeContext(DbContextOptions options) : base(options)
+        public PetLifeContext(DbContextOptions<PetLifeContext> options) : base(options)
         {
-
         }
-        public virtual DbSet<WeatherForecast> WeatherForecasts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-
-                IConfigurationRoot configuration = new ConfigurationBuilder()
-                    .Build();
-                var conStr = configuration.GetConnectionString("PLifeDbContext");
-                optionsBuilder.UseSqlServer(conStr);
-            }
+            optionsBuilder.UseSqlServer(AppSettings.ConnectionString);
         }
+        public virtual DbSet<WeatherForecast> WeatherForecasts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

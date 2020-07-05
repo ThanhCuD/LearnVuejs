@@ -5,7 +5,7 @@ namespace Plife.Data.Models
     public class WeatherForecast
     {
         public int id { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public int TemperatureC { get; set; }
 

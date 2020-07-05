@@ -1,4 +1,5 @@
 ﻿using Plife.Data.Models;
+using Plife.Data.ParamModel;
 using Plife.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace Plife.Data.Services
 {
     public interface INewsService
     {
-        void CreateNewWithRandom();
+        void Save(SaveNewsParamModel paramModel);
         List<New> GetAll();
     }
     public class NewsService : INewsService
@@ -20,17 +21,20 @@ namespace Plife.Data.Services
             this.repository = new GenericRepository<New>();
         }
 
-        public void CreateNewWithRandom()
+        public void Save(SaveNewsParamModel paramModel)
         {
-            var result = false;
-            var n = new New()
+            if(paramModel.ID == Guid.Empty)
             {
-                Title = "test1",
-                Description = "des1",
-                Body = "body1"
-            };
-            repository.Insert(n);
-            repository.Save();
+                var newModel = new New()
+                {
+                    Body = paramModel.Body,
+                    IsDeleted = false,
+                    Title = paramModel.Title,
+                    Description = paramModel.Description
+                };
+                repository.Insert(newModel);
+                repository.Save();
+            }
         }
 
         public List<New> GetAll()

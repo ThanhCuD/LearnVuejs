@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 using Plife.Data.Models;
+using Plife.Data.ParamModel;
 using Plife.Data.Services;
 
 namespace Plife.Api.Controllers
@@ -29,12 +30,12 @@ namespace Plife.Api.Controllers
             var data = _service.GetAll();
             return data;
         }
-        [HttpGet("create")]
-        public IActionResult CreateNewWithRandom()
+        [HttpPost("Save")]
+        public IActionResult Save(SaveNewsParamModel param)
         {
             try
             {
-                _service.CreateNewWithRandom();
+                _service.Save(param);
                 return Ok();
             }
             catch(Exception ex)

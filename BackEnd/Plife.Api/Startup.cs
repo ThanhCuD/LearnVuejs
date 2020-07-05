@@ -32,6 +32,7 @@ namespace Plife.Api
             AppSettings.ConnectionString = Configuration.GetConnectionString("PLifeDb");
             services.AddControllers();
             services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+            services.AddScoped<INewsService, NewsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

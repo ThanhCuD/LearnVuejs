@@ -22,7 +22,7 @@ namespace Plife.Data.Models
             optionsBuilder.UseSqlServer(AppSettings.ConnectionString);
         }
         public virtual DbSet<WeatherForecast> WeatherForecasts { get; set; }
-
+        public virtual DbSet<New> News { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<WeatherForecast>(entity =>
@@ -36,6 +36,20 @@ namespace Plife.Data.Models
                   .HasColumnName("temperature_c");
                 entity.Property(e => e.Summary)
                   .HasColumnName("summary");
+            });
+            modelBuilder.Entity<New>(entity =>
+            {
+                entity.HasKey(e => e.ID);
+                entity.ToTable("news");
+                entity.Property(e => e.ID).HasColumnName("id").ValueGeneratedOnAdd();
+                entity.Property(e => e.Title)
+                   .HasColumnName("title");
+                entity.Property(e => e.Description)
+                  .HasColumnName("description");
+                entity.Property(e => e.Body)
+                  .HasColumnName("body");
+                entity.Property(e => e.IsDeleted)
+                  .HasColumnName("is_deleted");
             });
         }
 

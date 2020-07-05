@@ -18,5 +18,13 @@ namespace Plife.Data.Repository
         {
             return table.ToList();
         }
+        public void Insert(T entity)
+        {
+            table.Add(entity);
+        }
+        public void Save()
+        {
+            context.SaveChanges();
+        }
     }
 }
